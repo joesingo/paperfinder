@@ -5,10 +5,16 @@ citation. Output can be given as plain text or JSON.
 
 This takes some of the pain out of dealing with publishers' websites. Of
 course, it is possible to pair this tool with SciHub to get the actual PDF (go
-to `https://sci-hub.se/<DOI>`, but I could not possibly endorse piracy in this
+to `https://sci-hub.se/<DOI>`), but I could not possibly endorse piracy in this
 way...
 
-E.g:
+Note that `pf` works for a [very small number of
+publishers](#supported-publishers), and may break if publisher web pages or
+URLs change.
+
+## Examples
+
+Output as plain text:
 
 ```
 $ pf "https://www.sciencedirect.com/science/article/pii/000437029400041X"
@@ -30,6 +36,8 @@ BibTeX:
 }
 ```
 
+Output as JSON (useful for combining `pf` with other scripts):
+
 ```
 $ pf --format json "https://www.sciencedirect.com/science/article/pii/
 000437029400041X"
@@ -39,11 +47,9 @@ $ pf --format json "https://www.sciencedirect.com/science/article/pii/
 }
 ```
 
-Note that `pf` works for a [very small number of
-publishers](#supported-publishers), and may break if publisher web pages or
-URLs change.
-
 ## Installation
+
+Clone this repository and install using `pip` (for python 3). E.g. on Linux:
 
 ```
 $ git clone https://github.com/joesingo/paperfinder
