@@ -17,7 +17,7 @@ setup(
     name="paperfinder",
     version="0.0.1",
     description=("Simple tool to output the DOI and BibTeX for a paper given "
-                 "its URL on the publisher's website")
+                 "its URL on the publisher's website"),
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
     url="https://github.com/joesingo/paperfinder",

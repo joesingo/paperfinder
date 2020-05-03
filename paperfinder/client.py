@@ -45,6 +45,12 @@ class ScienceDirect(Publisher):
         except KeyError:
             raise PaperFinderError("DOI <meta> tag does not have 'content' attribute")
 
+class AcmDigitalLibrary(Publisher):
+    PREFIX = "https://dl.acm.org/doi/book/"
+
+    def get_doi(self, url: str) -> str:
+        # DOI is appended to base URL
+        return url[len(self.PREFIX):]
 
 def get_publisher(url: str) -> Publisher:
     classes = Publisher.__subclasses__()
@@ -77,7 +83,7 @@ def main(url: str, fmt: str):
         doi = pub.get_doi(url)
         bibtex = get_bibtex(doi)
     except PaperFinderError as ex:
-        print(f"{sys.arv[0]}: {ex}", file=sys.stderr)
+        print(f"{sys.argv[0]}: {ex}", file=sys.stderr)
         return 1
 
     if fmt == "text":
